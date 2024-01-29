@@ -26,7 +26,6 @@ class PoliticalSpeechContainer {
     @GetMapping("/evaluation")
     fun parseCsv(@RequestParam allRequestParams: Map<String, String>): EvaluationResponse {
 
-        var i = 1
         var url: URL
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
         val listData: ArrayList<DataColumns> = ArrayList()
@@ -57,7 +56,6 @@ class PoliticalSpeechContainer {
                     }
                 }
             }
-            i++
         }
         // Which politician gave the most speeches in 2013?
         val mostSpeechesInYear: String = listData.filter { it.date.year == 2013 }
